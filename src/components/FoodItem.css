@@ -1,0 +1,21 @@
+.FoodItem {
+  background: white;
+  border: 1px solid #495057;
+  padding: 0.5rem;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.FoodItem h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.FoodItem:hover {
+  background: #495057;
+  color: white;
+}
+
+.FoodItem + .FoodItem {
+  margin-top: 1rem;
+}

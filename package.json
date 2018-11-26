@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-redux": "^5.1.1",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -14,7 +19,15 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "airbnb",
+    "rules": {
+      "react/prefer-stateless-function": 0,
+      "react/jsx-filename-extension": 0,
+      "react/jsx-one-expression-per-line": 0
+    },
+    "env": {
+      "browser": true
+    }
   },
   "browserslist": [
     ">0.2%",
