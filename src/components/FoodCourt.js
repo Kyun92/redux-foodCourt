@@ -3,11 +3,12 @@ import FoodCourtTemplate from './FoodCourtTemplate';
 
 import BasketItemList from './BasketItemList';
 import FoodItemListContainer from '../container/FoodItemListContainer';
+import BasketItemListContainer from '../container/BasketItemListContainer';
 
 const FoodCourt = () => (
   <FoodCourtTemplate
     items={<FoodItemListContainer />}
-    basket={<BasketItemList />}
+    basket={<BasketItemListContainer />}
   />
 );
 

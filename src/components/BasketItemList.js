@@ -1,15 +1,24 @@
 import React from 'react';
 import BasketItem from './BasketItem';
 
-const BasketItemList = () => (
-  <div>
-    <BasketItem name="김밥" price={2000} count={2} />
-    <BasketItem name="라면" price={3000} count={1} />
-    <hr />
-    <p>
-      <b>총합: </b> 5000원
-    </p>
-  </div>
-);
+const BasketItemList = ({ basket }) => {
+  const itemList = basket.map(item => (
+    <BasketItem
+      key={item.name}
+      name={item.name}
+      price={item.price}
+      count={item.count}
+    />
+  ));
+  return (
+    <div>
+      {itemList}
+      <hr />
+      <p>
+        <b>총합: </b> 5000원
+      </p>
+    </div>
+  );
+};
 
 export default BasketItemList;
