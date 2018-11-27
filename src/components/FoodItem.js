@@ -1,10 +1,10 @@
 import React from 'react';
 import './FoodItem.css';
 
-const FoodItem = ({ name, price }) => (
-  <div className="FoodItem">
-    <h4>{name}</h4>
-    <div>{price}원</div>
+const FoodItem = ({ item, onClick }) => (
+  <div className="FoodItem" onClick={() => onClick(item)}>
+    <h4>{item.name}</h4>
+    <div>{item.price}원</div>
   </div>
 );
 
