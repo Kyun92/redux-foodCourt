@@ -3,20 +3,20 @@ import FoodItem from './FoodItem';
 
 const items = [
   {
-    name: '생수',
-    price: 850,
+    name: '김밥',
+    price: 2000,
   },
   {
-    name: '신라면',
-    price: 900,
+    name: '라면',
+    price: 3000,
   },
   {
-    name: '포카칩',
-    price: 1500,
+    name: '치즈라면',
+    price: 3500,
   },
   {
-    name: '새우깡',
-    price: 1000,
+    name: '떡볶이',
+    price: 2500,
   },
 ];
 
