@@ -7,31 +7,49 @@ import BasketItemList from "../components/BasketItemList";
 
 class BasketItemListContainer extends Component {
   handleIncrement = id => {
-    this.props.BasketActions.icrement(id);
+    this.props.BasketActions.increment(id);
   };
 
-  handleDecrement = basketItem => {
-    // 얘가 문제다 .
+  handleDecrement = id => {
     const { basket, BasketActions } = this.props;
-    const isZero = basket.find(item => item.id === basketItem.id);
-    if (isZero.count !== 0) {
-      BasketActions.decrement(basketItem.id);
+    const isZero = basket.find(item => item.id === id);
+    if (isZero.count === 1) {
+      BasketActions.remove(id);
       return;
     }
+    BasketActions.decrement(id);
   };
 
   handleRemove = id => {
     this.props.BasketActions.remove(id);
   };
 
+  getTotal = () => {
+    const { basket } = this.props;
+    const total = basket.reduce((previous, current) => {
+      return previous + current.price * current.count;
+    }, 0);
+
+    return total;
+  };
+
   render() {
     const { basket } = this.props;
-    return <BasketItemList basket={basket} />;
+    return (
+      <BasketItemList
+        basket={basket}
+        total={this.getTotal()}
+        onIncrement={this.handleIncrement}
+        onDecrement={this.handleDecrement}
+        onRemove={this.handleRemove}
+      />
+    );
   }
 }
 
 const mapStateToProps = ({ basket }) => ({
-  basket: basket.list
+  basket: basket.list,
+  total: basket.total
 });
 
 const mapDispachToProps = dispatch => ({

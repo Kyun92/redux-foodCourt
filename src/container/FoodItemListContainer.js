@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import FoodItemList from '../components/FoodItemList';
-import * as basketActions from '../modules/basket';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import FoodItemList from "../components/FoodItemList";
+import * as basketActions from "../modules/basket";
 
 class FoodItemListContainer extends Component {
   handleClick = food => {
     const { BasketActions, basket } = this.props;
     const isBasket = basket.find(item => item.name === food.name);
-    console.log(isBasket);
     if (!isBasket) {
       BasketActions.insert(food);
       return;
@@ -25,14 +24,14 @@ class FoodItemListContainer extends Component {
 
 const mapStateToProps = ({ food, basket }) => ({
   foodList: food.foodList,
-  basket: basket.list,
+  basket: basket.list
 });
 
 const mapDispachToProps = dispatch => ({
-  BasketActions: bindActionCreators(basketActions, dispatch),
+  BasketActions: bindActionCreators(basketActions, dispatch)
 });
 
 export default connect(
   mapStateToProps,
-  mapDispachToProps,
+  mapDispachToProps
 )(FoodItemListContainer);
