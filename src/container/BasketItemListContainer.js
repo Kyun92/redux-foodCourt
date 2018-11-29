@@ -52,11 +52,11 @@ const mapStateToProps = ({ basket }) => ({
   total: basket.total
 });
 
-const mapDispachToProps = dispatch => ({
+const mapDisptachToProps = dispatch => ({
   BasketActions: bindActionCreators(basketActions, dispatch)
 });
 
 export default connect(
   mapStateToProps,
-  mapDispachToProps
+  mapDisptachToProps
 )(BasketItemListContainer);
